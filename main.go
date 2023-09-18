@@ -1,13 +1,18 @@
 package main
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
+
+func RequestHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Content-Type", "text/plain")
+	w.Write([]byte("Hello World!"))
+}
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-		w.Header().Set("Content-Type", "text/plain")
-		w.Write([]byte("Hello World!"))
-	})
+	http.HandleFunc("/", RequestHandler)
 
-	http.ListenAndServe(":9999", nil)
+	log.Fatal(http.ListenAndServe(":9999", nil))
 }

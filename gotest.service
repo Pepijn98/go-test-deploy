@@ -1,3 +1,4 @@
+# /etc/systemd/user/gotest.service
 [Unit]
 Description=Testing go app deployment
 
@@ -5,6 +6,7 @@ Description=Testing go app deployment
 Type=simple
 Restart=always
 RestartSec=5s
+WorkingDirectory=${HOME}/projects/gotest
 ExecStart=/bin/bash -c '${HOME}/projects/gotest/build/main'
 
 [Install]
