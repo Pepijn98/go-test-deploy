@@ -1,0 +1,13 @@
+# /etc/systemd/system/gotest.service
+
+[Unit]
+Description=Testing go app deployment
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStart=${HOME}/projects/gotest/build/main
+
+[Install]
+WantedBy=multi-user.target
