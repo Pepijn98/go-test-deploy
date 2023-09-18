@@ -20,7 +20,7 @@ jobs:
               with:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USER }}
-                  key: ${{ secrets.DEPLOY_SSH_KEY }}
+                  key: ${{ secrets.DEPLOY_KEY }}
                   port: 22
                   script_stop: true
                   script: |
