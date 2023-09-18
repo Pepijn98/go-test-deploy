@@ -41,11 +41,17 @@ func V3Greet(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "V3 Hello World!")
 }
 
+func V4Greet(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "V4 Hello World!")
+}
+
 func main() {
 	http.HandleFunc("/", Index)
 	http.HandleFunc("/greet", Greet)
 	http.HandleFunc("/v2greet", V2Greet)
 	http.HandleFunc("/v3greet", V3Greet)
+	http.HandleFunc("/v4greet", V4Greet)
 
 	log.Fatal(http.ListenAndServe(":9999", nil))
 }
